@@ -16,9 +16,22 @@ while (true)
     
 }
 
+
 static int ReadInt(int lastUsedValue, string prompt)
 {
-
+    Console.WriteLine(prompt + " [Wartość domyślna: " + lastUsedValue.ToString() + " ]");
+    Console.Write($"Wpisz {prompt}: ");
+    bool IsuserInputValid = int.TryParse(Console.ReadLine(), out int userInput);
+    if (IsuserInputValid)
+    {
+        Console.WriteLine($"Użycie wartości: {userInput}");
+        return userInput;
+    }else
+    {
+        Console.WriteLine($"Użycie wartości domyślnej: {lastUsedValue}");
+        return lastUsedValue;
+    }
+    
 }
 
 static double ReadDouble(double lastUsedValue, string prompt)
