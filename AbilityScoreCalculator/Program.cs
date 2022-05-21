@@ -36,5 +36,17 @@ static int ReadInt(int lastUsedValue, string prompt)
 
 static double ReadDouble(double lastUsedValue, string prompt)
 {
-
+    Console.WriteLine(prompt + " [Wartość domyślna: " + lastUsedValue.ToString() + " ]");
+    Console.Write($"Wpisz {prompt}: ");
+    bool IsuserInputValid = double.TryParse(Console.ReadLine(), out double userInput);
+    if (IsuserInputValid)
+    {
+        Console.WriteLine($"Użycie wartości: {userInput}");
+        return userInput;
+    }
+    else
+    {
+        Console.WriteLine($"Użycie wartości domyślnej: {lastUsedValue}");
+        return lastUsedValue;
+    }
 }
