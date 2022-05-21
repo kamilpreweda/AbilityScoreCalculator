@@ -19,13 +19,15 @@ namespace AbilityScoreCalculator
             double divided = RollResult / DivideBy;
             int added = AddAmount += (int)divided;
             
+            
             if (added < Minimum)
             {
                 Score = Minimum;
             }
             else
             {
-                Score = added;
+                Score = 0;
+                Score += added;
             }
         }
     }
