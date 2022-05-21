@@ -17,17 +17,21 @@ namespace AbilityScoreCalculator
         public void CalculateAbilityScore()
         {
             double divided = RollResult / DivideBy;
-            int added = AddAmount += (int)divided;
+            int added = AddAmount + (int)divided; // [BUG FIX]: += changed to +
             
             
             if (added < Minimum)
             {
                 Score = Minimum;
+
             }
             else
             {
                 Score = 0;
                 Score += added;
+               // [BUG FIX]: OR AddAmount = added - (int)divided;
+
+                
             }
         }
     }
